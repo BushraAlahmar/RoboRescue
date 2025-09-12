@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="98bd81b1-de6c-477a-b1e8-6c9f12b9abce" name="ftp://BotsLab.somee.com/www.BotsLab.somee.com" url="http://www.RoboRescue.somee.com">
+        <fileTransfer rootFolder="/www.RoboRescue.somee.com" host="www.RoboRescue.somee.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

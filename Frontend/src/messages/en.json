@@ -1,0 +1,450 @@
+{
+  "level": {
+    "progress": {
+      "title": "🏆 Your Progress:",
+      "level": "Level",
+      "section": "Section",
+      "current": "📍 Current:",
+      "progressLabel": "📊 Progress",
+      "viewPreviousLevels": "View Previous Levels"
+    },
+    "success": {
+      "title": "🎉 Level Complete!",
+      "nextLevel": "Next Level",
+      "returnToMap": "Return to Map",
+      "redirecting": "Redirecting...",
+      "missionAccomplished": "Mission Accomplished!🎉",
+      "robotRepaired": "The robot has been repaired successfully.",
+      "nextChallenge": "Ready for the next challenge? Level {levelNumber} awaits!",
+      "congratulations": "🏆 Congratulations! You've completed all levels and mastered OOP concepts!"
+    },
+    "error": {
+      "title": "❌ Compilation Error",
+      "fixErrors": "Please fix the errors above and try again.",
+      "retry": "Retry",
+      "errorLoadingLevel": "Error Loading Level",
+      "returnToMap": "Return to Map"
+    },
+    "controls": {
+      "runCode": "Run Code",
+      "resetCode": "Reset Code",
+      "fullscreen": "Fullscreen",
+      "exitFullscreen": "Exit Fullscreen",
+      "startCoding": "Start Coding",
+      "compiling": "🔄 Compiling...",
+      "runCodeButton": "🚀 Run Code"
+    },
+    "dialog": {
+      "endLevel": "End Level?",
+      "endLevelDescription": "Are you sure you want to end this level and return to the main menu? Your progress will be saved.",
+      "cancel": "Cancel",
+      "endLevelButton": "End Level",
+      "previousLevels": "Previous Levels",
+      "codeForLevel": "Code for Level {levelNumber}",
+      "backToLevels": "Back to Levels",
+      "viewCode": "View Code",
+      "loadingCode": "Loading code...",
+      "lastCompletedLevel": "Last Completed Level",
+      "allLevelsInSection": "All Levels in Section",
+      "completed": "Completed",
+      "notCompleted": "Not Completed",
+      "available": "Available"
+    },
+    "header": {
+      "levelComplete": "Level Complete!",
+      "levelNumber": "Level {levelNumber}"
+    },
+    "polymorphism": {
+      "title": "Learn Polymorphism with Robots",
+      "exercise": "Exercise: Robot Factory",
+      "description": "Create a robot factory system using polymorphism. You need to:",
+      "steps": {
+        "step1": "Create an abstract {code}Robot{/code} class with an abstract {code}performTask(){/code} method",
+        "step2": "Create three robot types: {code}CleaningRobot{/code}, {code}AssemblyRobot{/code}, and {code}WeldingRobot{/code}",
+        "step3": "Each robot should implement {code}performTask(){/code} with its specific behavior",
+        "step4": "Create a {code}RobotFactory{/code} class that can create any type of robot"
+      }
+    },
+    "robot": {
+      "welcome": "Welcome to the coding challenge!",
+      "readyToStart": "Ready to start coding!",
+      "clickToStart": "Click to start coding",
+      "startCode": "Start Code",
+      "levelDescription": "Let's begin this coding challenge!",
+      "taskFallback": "Ready to start coding!",
+      "successMessage": "✅ Code check passed! Mission accomplished!",
+      "errorPrefix": "❌ Code check failed: ",
+      "unknownError": "Unknown error occurred",
+      "networkError": "❌ An error occurred while checking your code. Please try again.",
+      "failedToLoad": "Failed to load level",
+      "failedToLoadData": "Failed to load level data",
+      "syntaxCheck": {
+        "emptyCode": "No code entered. Please enter some Java code to check syntax.",
+        "success": "✅ Java syntax is valid! Your code is ready to compile and run.",
+        "errorPrefix": "❌ Found {count} syntax error{plural} in your Java code:",
+        "errorDetails": "Line {line}, Column {column}: {message}",
+        "explanation": "Explanation: {explanation}"
+      }
+    }
+  },
+  "home": {
+    "title": "🚀 RoboRescue",
+    "description": "Welcome to RoboRescue, where coding meets adventure! Learn programming concepts through interactive challenges.",
+    "clickInstruction": "Click on any level",
+    "beginAdventure": "to start your journey",
+    "editor": {
+      "runCode": "Run Code",
+      "helloWorld": "Hello, World!"
+    }
+  },
+  "auth": {
+    "debug": {
+      "title": "🔐 Auth Debug",
+      "authenticated": "Authenticated",
+      "userId": "User ID",
+      "rememberMe": "Remember Me",
+      "hasTokens": "Has Tokens",
+      "storage": "Storage",
+      "localStorage": "localStorage",
+      "sessionStorage": "sessionStorage",
+      "none": "None"
+    },
+    "signIn": {
+      "title": "Welcome Back",
+      "description": "Sign in to continue your journey",
+      "subtitle": "Enter your credentials to proceed",
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "keepSignedIn": "Keep me signed in",
+      "staySignedIn": "You'll stay signed in even after closing the browser",
+      "signOutOnClose": "Sign out when you close the browser",
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "welcome": "Welcome!",
+      "orContinueWith": "OR continue with",
+      "newToPlatform": "New to our platform?",
+      "createAccount": "Create an account",
+      "errors": {
+        "missingCredentials": "Please enter both email and password!",
+        "errorTitle": "Authentication Error",
+        "errorDescription": "There was a problem with your sign-in attempt. Please check your credentials and try again.",
+        "emailExists": "An account with this email already exists. Please use a different email or sign in.",
+        "invalidCredentials": "Invalid email or password. Please check your credentials and try again.",
+        "genericError": "An error occurred during authentication. Please try again."
+      }
+    },
+    "signUp": {
+      "title": "Create Account",
+      "description": "Join us on this exciting journey",
+      "subtitle": "Fill in your details to get started",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "username": "Username",
+      "email": "Enter your email",
+      "password": "Create a password",
+      "confirmPassword": "Confirm your password",
+      "keepSignedIn": "Keep me signed in",
+      "staySignedIn": "You'll stay signed in even after closing the browser",
+      "signOutOnClose": "Sign out when you close the browser",
+      "createAccount": "Sign Up",
+      "creatingAccount": "Creating account...",
+      "accountCreated": "Account Created!",
+      "orSignUpWith": "Or sign up with",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "errors": {
+        "passwordMismatch": "Passwords do not match!",
+        "requiredFields": "Please fill in all required fields!",
+        "errorTitle": "Registration Error",
+        "errorDescription": "There was a problem creating your account. Please check your information and try again.",
+        "emailExists": "An account with this email already exists. Please use a different email or sign in.",
+        "userNameExists": "This username is already taken. Please choose a different username.",
+        "genericError": "An error occurred during registration. Please try again.",
+        "passwordTooShort": "Password must be at least 8 characters long.",
+        "usernameTooShort": "Username must be at least 4 characters long."
+      }
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Enter your email and we'll send you a reset token",
+      "email": "Email Address",
+      "enterEmail": "Enter your email address",
+      "token": "Reset Token",
+      "enterToken": "Enter the token from your email",
+      "newPassword": "New Password",
+      "enterNewPassword": "Enter your new password",
+      "confirmPassword": "Confirm Password",
+      "enterConfirmPassword": "Confirm your new password",
+      "sendToken": "Send Reset Token",
+      "sending": "Sending...",
+      "resetPassword": "Reset Password",
+      "resetting": "Resetting...",
+      "tokenSent": "Reset token sent to your email",
+      "tokenSentNote": "Check your email for the token",
+      "resetSuccess": "Password reset successfully! Redirecting to sign in...",
+      "backToSignIn": "Back to Sign In",
+      "errors": {
+        "missingEmail": "Please enter your email address",
+        "missingFields": "Please fill in all fields",
+        "passwordMismatch": "Passwords do not match",
+        "tokenFailed": "Failed to send reset token",
+        "tokenError": "An error occurred while sending the token",
+        "resetFailed": "Failed to reset password",
+        "resetError": "An error occurred while resetting password"
+      }
+    }
+  },
+
+  "map": {
+    "title": "🗺️ Adventure Map",
+    "description": "Test your programming skills with our comprehensive challenge system. Each level is designed to push your abilities and expand your knowledge.",
+    "mapTitle": "🗺️ Adventure Map",
+    "mapDescription": "Embark on your coding journey! Each level presents unique programming challenges that will test your skills and help you master the art of software development.",
+    "clickInstruction": "Click on any level",
+    "beginAdventure": "to begin your adventure",
+    "levelCount": "Levels",
+    "currentLevel": "Current Level",
+    "status": {
+      "completed": "✓",
+      "current": "▶",
+      "locked": "🔒"
+    },
+    "tooltips": {
+      "availableLevels": "Available Levels",
+      "completed": "Completed",
+      "locked": "Locked"
+    },
+    "loading": "Loading...",
+    "loadingSections": "Loading sections...",
+    "backgroundAlt": "Map background",
+    "sectionAlt": "Section {sectionNumber}",
+    "replay": {
+      "title": "Section Completed",
+      "message": "You have completed all levels in this section. Would you like to replay from the beginning?",
+      "confirm": "Replay Section",
+      "cancel": "Cancel",
+      "replaying": "Starting replay...",
+      "viewLevels": "View Levels"
+    }
+  },
+  "landing": {
+    "badge": "Learn OOP",
+    "title1": "Master Object-Oriented",
+    "title2": "Programming Through Play",
+    "description": "Learn Object-Oriented Programming concepts through interactive coding challenges and fun exercises."
+  },
+  "header": {
+    "language": "Language",
+    "about": "About Us",
+    "challenges": "Challenges",
+    "profile": "Profile",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "home": "Home",
+    "viewProfile": "View Profile",
+    "logout": "Logout"
+  },
+  "challenges": {
+    "title": "🏆 Coding Challenges",
+    "description": "Test your programming skills with our comprehensive challenge system. Each level is designed to push your abilities and expand your knowledge.",
+    "mapTitle": "🗺️ Adventure Map",
+    "mapDescription": "Embark on your coding journey! Each level presents unique programming challenges that will test your skills and help you master the art of software development.",
+    "clickToStart": "Click on any level",
+    "toBegin": "to begin your adventure"
+  },
+  "about": {
+    "title": "About Us - RoboRescue",
+    "subtitle": "Welcome to the Future of Programming Education",
+    "description": "RoboRescue is an innovative serious game specifically developed for distance learning students to teach the complex concepts of object-oriented programming (OOP) in an exciting and interactive way. Our game transforms the often perceived dry subject of programming into a captivating rescue adventure in a futuristic robot factory.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "We believe that learning should be fun – especially when it comes to complex technical concepts. Our mission is to provide distance learning students with an immersive learning environment that:",
+      "points": [
+        "Makes abstract concepts tangible through visual representations and practical applications",
+        "Increases motivation through an exciting rescue mission and problem-based learning",
+        "Promotes sustainable understanding through step-by-step knowledge building",
+        "Enables flexible learning for the special needs of distance learning students"
+      ]
+    },
+    "gameContent": {
+      "title": "The Game Concept",
+      "rescueMission": {
+        "title": "The Rescue Mission",
+        "description": "Welcome to RoboTech Industries – a state-of-the-art robot factory that has gone out of control due to a critical system failure. As an experienced programmer, you are the hero called upon to save the factory and end the chaos. Your mission: RoboRescue!"
+      },
+      "challenge": {
+        "title": "The Challenge",
+        "description": "The factory is divided into four critical departments, each representing a fundamental OOP principle. Each department needs your programming expertise to be rescued:",
+        "departments": [
+          {
+            "name": "Design Department - Abstraction",
+            "description": "Save the design software and create clear, reusable robot models"
+          },
+          {
+            "name": "Assembly Hall - Inheritance",
+            "description": "Restore the confused inheritance hierarchies and save the production"
+          },
+          {
+            "name": "Test Laboratory - Polymorphism",
+            "description": "Ensure that different robot types can be tested uniformly and save quality control"
+          },
+          {
+            "name": "Control Center - Concurrency",
+            "description": "Coordinate complex systems, solve synchronization problems, and save the entire factory"
+          }
+        ]
+      },
+      "objectives": {
+        "title": "Your Rescue Objectives",
+        "description": "After successfully completing RoboRescue, you can:",
+        "skills": [
+          {
+            "title": "Understand and Apply Abstraction",
+            "points": [
+              "Develop interfaces for different robot types and save the design department",
+              "Create abstraction levels for complex systems",
+              "Define clean interfaces between components"
+            ]
+          },
+          {
+            "title": "Master Inheritance",
+            "points": [
+              "Correctly implement inheritance hierarchies and save the assembly hall",
+              "Strategically use method overriding",
+              "Handle constructors in inheritance relationships"
+            ]
+          },
+          {
+            "title": "Master Polymorphism",
+            "points": [
+              "Use subtype polymorphism for uniform interfaces and save the test laboratory",
+              "Apply parametric polymorphism for flexible solutions",
+              "Meaningfully use overloading (ad-hoc polymorphism)"
+            ]
+          },
+          {
+            "title": "Understand Concurrency",
+            "points": [
+              "Implement thread safety and save the control center",
+              "Develop synchronization mechanisms",
+              "Save the entire factory through modern concurrency concepts"
+            ]
+          }
+        ]
+      }
+    },
+    "contact": {
+      "title": "Contact and Support",
+      "description": "Do you have questions about RoboRescue or need support with your rescue mission? We're here for you!",
+      "developer": "Development Team: Bushra Alahmar",
+      "email": "E-Mail: boushra.a87@gmail.com"
+    },
+    "hero": {
+      "title": "Become a RoboRescue Hero!",
+      "description": "In RoboRescue, you're not just a learner – you're the hero who saves an entire robot factory! Every solved programming task brings you closer to your goal: the complete rescue of RoboTech Industries and mastery in object-oriented programming.",
+      "journey": {
+        "title": "Your Hero's Journey Begins Now:",
+        "steps": [
+          "Receive the emergency call from the robot factory",
+          "Choose your first rescue mission",
+          "Solve critical programming problems",
+          "Save department by department",
+          "Become the ultimate RoboRescue champion!"
+        ]
+      },
+      "tagline": "RoboRescue - Where Programming Becomes Heroic!"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "stats": "Your Stats",
+    "progress": "Progress",
+    "achievements": "Achievements",
+    "settings": "Settings",
+    "completedLevels": "Completed Levels",
+    "currentLevel": "Current Level",
+    "totalPoints": "Total Points",
+    "joined": "Joined",
+    "noLevelsCompleted": "No levels completed",
+    "levelsCompleted": "level completed",
+    "levelsCompletedPlural": "levels completed",
+    "learningProgress": "Learning Progress",
+    "totalCompleted": "Total Completed",
+    "highestLevel": "Highest Level",
+    "currentSection": "Current Section",
+    "recentLevels": "Recent Levels",
+    "editProfile": "Edit Profile",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "username": "Username",
+    "email": "Email",
+    "birthDate": "Birth Date",
+    "enterFirstName": "Enter first name",
+    "enterLastName": "Enter last name",
+    "enterUsername": "Enter username",
+    "enterEmail": "Enter email",
+    "loadingProfile": "Loading profile...",
+    "profileNotFound": "Profile not found",
+    "retry": "Retry",
+    "level": "Level",
+    "section": "Section",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "updatePassword": "Update Password",
+    "enterCurrentPassword": "Enter current password",
+    "enterNewPassword": "Enter new password",
+    "confirmPassword": "Confirm new password"
+  },
+  "activateEmail": {
+    "title": "Activate Your Email",
+    "description": "Enter the 8-character code sent to your email",
+    "subtitle": "Complete your account setup",
+    "email": "Enter your email",
+    "activationCode": "Enter 8-character activation code",
+    "codeDescription": "Enter the 8-character code sent to your email",
+    "activateEmail": "Activate Email",
+    "activating": "Activating...",
+    "activated": "Activated!",
+    "successMessage": "Email activated successfully! Redirecting...",
+    "alreadyActivated": "Already activated?",
+    "signInHere": "Sign in here",
+    "errors": {
+      "missingFields": "Please enter both email and activation token!",
+      "invalidTokenLength": "Activation token must be exactly 8 characters!",
+      "activationFailed": "Failed to activate email",
+      "unexpectedError": "An unexpected error occurred"
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "Company",
+      "description": "Building the future of coding education with interactive and engaging experiences."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "aboutUs": "About Us",
+      "courses": "Courses",
+      "contact": "Contact"
+    },
+    "resources": {
+      "title": "Resources",
+      "blog": "Blog",
+      "documentation": "Documentation",
+      "support": "Support"
+    },
+    "connect": {
+      "title": "Connect"
+    },
+    "bottomBar": {
+      "copyright": "© {year} Your Company. All rights reserved.",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "cookiePolicy": "Cookie Policy"
+    }
+  }
+}

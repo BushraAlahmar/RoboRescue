@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes neon {
+  0% {
+    box-shadow: 0 0 5px #a0d9f8, 0 0 10px #a0d9f8, 0 0 15px #3a5bbf;
+  }
+  50% {
+    box-shadow: 0 0 10px #a0d9f8, 0 0 20px #a0d9f8, 0 0 30px #3a5bbf;
+  }
+  100% {
+    box-shadow: 0 0 5px #a0d9f8, 0 0 10px #a0d9f8, 0 0 15px #3a5bbf;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-40px);
+    -webkit-transform: translateX(-40px);
+    -moz-transform: translateX(-40px);
+    -ms-transform: translateX(-40px);
+    -o-transform: translateX(-40px);
+}
+  50% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(-40px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%
+  }
+  .theme {
+    --animate-meteor-effect: meteor 5s linear infinite
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  @keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+    }
+  70% {
+    opacity: 1;
+    }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+    }
+  }
+}
+
+/* Monaco Editor Custom Styles */
+.monaco-editor.vs-dark {
+  background: transparent !important;
+}
+
+.monaco-editor.vs-dark .monaco-editor-background,
+.monaco-editor.vs-dark .margin,
+.monaco-editor.vs-dark .minimap,
+.monaco-editor.vs-dark .minimap-decorations-layer,
+.monaco-editor.vs-dark .minimap-decorations-layer .minimap-decoration {
+  background: transparent !important;
+}
+
+.monaco-editor.vs-dark .minimap .minimap-slider {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.monaco-editor.vs-dark .minimap .minimap-slider:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.monaco-editor.vs-dark .minimap .minimap-slider.active {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.monaco-editor.vs-dark .minimap .minimap-shadow-visible {
+  box-shadow: none !important;
+}
+
+.monaco-editor.vs-dark .error-line {
+  background-color: rgba(255, 0, 0, 0.1) !important;
+}
+
+.monaco-editor.vs-dark .error-glyph {
+  background-color: rgba(255, 68, 68, 0.8) !important;
+}
+
+.monaco-editor.vs-dark .margin-view-overlays .cgmr {
+  background-color: rgba(255, 68, 68, 0.8) !important;
+}
+
+@layer utilities {
+  .clip-path-desktop {
+    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 100% 75%, 100% 100%, 72% 75%, 0% 75%);
+  }
+  
+  .clip-path-mobile {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 27% 78%, 0 100%, 0 77%, 0 76%);
+  }
+}
+
+
+
+/* Loading Animation */
+.three-body {
+  --uib-size: 20px;
+  --uib-speed: 0.8s;
+  --uib-color: #fff;
+  position: relative;
+  display: inline-block;
+  height: var(--uib-size);
+  width: var(--uib-size);
+  animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
+}
+
+.three-body__dot {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+}
+
+.three-body__dot:after {
+  content: '';
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: var(--uib-color);
+  border-radius: 50%;
+}
+
+.three-body__dot:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform: rotate(60deg);
+  transform-origin: 50% 85%;
+}
+
+.three-body__dot:nth-child(1):after {
+  bottom: 2px;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite ease-in-out;
+  animation-delay: calc(var(--uib-speed) * -0.3);
+}
+
+.three-body__dot:nth-child(2) {
+  top: 0;
+  right: 0;
+  transform: rotate(-60deg);
+  transform-origin: 50% 85%;
+}
+
+.three-body__dot:nth-child(2):after {
+  bottom: 2px;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite ease-in-out;
+  animation-delay: calc(var(--uib-speed) * -0.15);
+}
+
+.three-body__dot:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  transform: translateX(116.666%);
+}
+
+.three-body__dot:nth-child(3):after {
+  top: 2px;
+  left: 0;
+  animation: wobble2 var(--uib-speed) infinite ease-in-out;
+}
+
+@keyframes spin78236 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wobble1 {
+  0%,
+  100% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(65%);
+  }
+}
+
+@keyframes wobble2 {
+  0%,
+  100% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-65%);
+  }
+}

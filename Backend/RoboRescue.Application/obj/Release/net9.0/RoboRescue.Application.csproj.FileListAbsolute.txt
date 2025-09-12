@@ -1,0 +1,16 @@
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\bin\Release\net9.0\RoboRescue.Application.deps.json
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\bin\Release\net9.0\RoboRescue.Application.dll
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\bin\Release\net9.0\RoboRescue.Application.pdb
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\bin\Release\net9.0\RoboRescue.Domain.dll
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\bin\Release\net9.0\RoboRescue.Domain.pdb
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.csproj.AssemblyReference.cache
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.AssemblyInfoInputs.cache
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.AssemblyInfo.cs
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.csproj.CoreCompileInputs.cache
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.sourcelink.json
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboResc.A3F4DAD8.Up2Date
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.dll
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\refint\RoboRescue.Application.dll
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\RoboRescue.Application.pdb
+F:\Projects\APIs\DotNet core\OOPGame\RoboRescue.Application\obj\Release\net9.0\ref\RoboRescue.Application.dll

@@ -1,0 +1,32 @@
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Application.deps.json
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Application.dll
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Application.pdb
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Domain.dll
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Domain.pdb
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.csproj.AssemblyReference.cache
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.AssemblyInfoInputs.cache
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.AssemblyInfo.cs
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.csproj.CoreCompileInputs.cache
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.sourcelink.json
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboResc.A3F4DAD8.Up2Date
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.dll
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\refint\RoboRescue.Application.dll
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.pdb
+F:\Projects\APIs\DotNet core\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\ref\RoboRescue.Application.dll
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Application.deps.json
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Application.dll
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Application.pdb
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Domain.dll
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\bin\Debug\net8.0\RoboRescue.Domain.pdb
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.csproj.AssemblyReference.cache
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.AssemblyInfoInputs.cache
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.AssemblyInfo.cs
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.csproj.CoreCompileInputs.cache
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.sourcelink.json
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboResc.A3F4DAD8.Up2Date
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.dll
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\refint\RoboRescue.Application.dll
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\RoboRescue.Application.pdb
+C:\Users\Bushra\Desktop\Master Praktische Informatik\Masterarbeit\RoboRescue\RoboRescue\RoboRescue.Application\obj\Debug\net8.0\ref\RoboRescue.Application.dll
