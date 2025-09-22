@@ -3,7 +3,7 @@
     "progress": {
       "title": "🏆 Dein Fortschritt:",
       "level": "Level",
-      "section": "Abschnitt",
+      "section": "Abteilung",
       "current": "📍 Aktuell:",
       "progressLabel": "📊 Fortschritt",
       "viewPreviousLevels": "Vorherige Level anzeigen"
@@ -45,7 +45,7 @@
       "viewCode": "Code anzeigen",
       "loadingCode": "Code wird geladen...",
       "lastCompletedLevel": "Zuletzt abgeschlossenes Level",
-      "allLevelsInSection": "Alle Level in diesem Abschnitt",
+      "allLevelsInSection": "Alle Level in diesem Abteilung",
       "completed": "Abgeschlossen",
       "notCompleted": "Nicht abgeschlossen",
       "available": "Verfügbar"
@@ -214,13 +214,13 @@
       "locked": "Gesperrt"
     },
     "loading": "Wird geladen...",
-    "loadingSections": "Abschnitte werden geladen...",
+    "loadingSections": "Abteilunge werden geladen...",
     "backgroundAlt": "Kartenhintergrund",
-    "sectionAlt": "Abschnitt {sectionNumber}",
+    "sectionAlt": "Abteilung {sectionNumber}",
     "replay": {
-      "title": "Abschnitt abgeschlossen",
-      "message": "Du hast alle Level in diesem Abschnitt abgeschlossen. Möchtest du von vorne beginnen?",
-      "confirm": "Abschnitt wiederholen",
+      "title": "Abteilung abgeschlossen",
+      "message": "Du hast alle Level in diesem Abteilung abgeschlossen. Möchtest du von vorne beginnen?",
+      "confirm": "Abteilung wiederholen",
       "cancel": "Abbrechen",
       "replaying": "Wiederholung wird gestartet...",
       "viewLevels": "Level anzeigen"
@@ -370,7 +370,7 @@
     "learningProgress": "Lernfortschritt",
     "totalCompleted": "Gesamt abgeschlossen",
     "highestLevel": "Höchstes Level",
-    "currentSection": "Aktueller Abschnitt",
+    "currentSection": "Aktueller Abteilung",
     "recentLevels": "Letzte Level",
     "editProfile": "Profil bearbeiten",
     "cancel": "Abbrechen",
@@ -389,7 +389,7 @@
     "profileNotFound": "Profil nicht gefunden",
     "retry": "Wiederholen",
     "level": "Level",
-    "section": "Abschnitt",
+    "section": "Abteilung",
     "changePassword": "Passwort ändern",
     "currentPassword": "Aktuelles Passwort",
     "newPassword": "Neues Passwort",

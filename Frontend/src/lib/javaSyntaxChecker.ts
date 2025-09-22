@@ -52,38 +52,8 @@ class JavaSyntaxChecker {
       });
     }
 
-    // Main method requirement (avoid false positives for helper classes and Runnable examples)
-    if (hasClass && !hasInterface) {
-      const classDecls = codeWithoutComments.match(/\bclass\s+\w+/g) || [];
-      const hasRunnableImpl = /\bimplements\s+Runnable\b/.test(
-        codeWithoutComments
-      );
-      const hasMainMethod =
-        /public\s+static\s+void\s+main\s*\(\s*String\s*\[\]\s*\w*\s*\)/.test(
-          codeWithoutComments
-        ) ||
-        /static\s+void\s+main\s*\(\s*String\s*\[\]\s*\w*\s*\)/.test(
-          codeWithoutComments
-        );
-
-      // Only enforce main when there's a single simple class without Runnable implementation
-      if (
-        classDecls.length === 1 &&
-        !/abstract\s+class/.test(codeWithoutComments) &&
-        !hasRunnableImpl &&
-        !hasMainMethod
-      ) {
-        // Only report missing main if there are no top-level statements later
-        // We'll check after scanning lines
-        errors.push({
-          line: 1,
-          column: 1,
-          message: "Missing main method",
-          explanation:
-            "Java programs need a main method to run. Add 'public static void main(String[] args) { ... }'",
-        });
-      }
-    }
+    // Main method requirement (only check if there are top-level statements)
+    // We'll check for main method requirement after scanning all lines
 
     // Check for balanced braces
     const braceCount =
@@ -133,7 +103,13 @@ class JavaSyntaxChecker {
     // Check each line for syntax errors
     let inMultiLineComment = false;
     let braceDepth = 0;
-    let hasTopLevelStatements = false;
+
+    // Variable tracking for duplicate detection
+    const variableScopes: { [depth: number]: Set<string> } = {};
+    const variableDeclarations: { [depth: number]: Map<string, number> } = {}; // name -> line number
+
+    // Method tracking for duplicate detection
+    const methodDeclarations: { [depth: number]: Map<string, number> } = {}; // signature -> line number
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -171,7 +147,7 @@ class JavaSyntaxChecker {
       // Skip lines that are part of multi-line statements (end with + for concatenation)
       if (trimmedLine.endsWith("+")) continue;
 
-      // Top-level statement detection
+      // Top-level statement detection (only for method calls and assignments)
       if (
         braceDepth === 0 &&
         !/^(package|import)\b/.test(trimmedLine) &&
@@ -180,13 +156,14 @@ class JavaSyntaxChecker {
           trimmedLine
         ) &&
         !/^(class|interface)\b/.test(trimmedLine) &&
-        (trimmedLine.endsWith(";") ||
-          /^new\s+/.test(trimmedLine) ||
-          /^\w+[\w<>\[\],\s]*\s+\w+\s*(=|;|\()/.test(trimmedLine))
+        !/^(public|private|protected)\s+/.test(trimmedLine) && // Allow public methods outside classes
+        trimmedLine.endsWith(";") &&
+        (/^new\s+/.test(trimmedLine) ||
+          /^\w+\s*\(/.test(trimmedLine) || // Method calls
+          /^\w+[\w<>\[\],\s]*\s+\w+\s*=/.test(trimmedLine)) // Variable assignments
       ) {
         const afterLastType =
           lastClosingBraceLine !== -1 && lineNumber > lastClosingBraceLine;
-        hasTopLevelStatements = true;
         if (!afterLastType) {
           errors.push({
             line: lineNumber,
@@ -268,74 +245,89 @@ class JavaSyntaxChecker {
       }
 
       // Check for missing semicolons (existing logic for classes)
+      // Remove comments from line for semicolon checking
+      const lineWithoutComments = line.replace(/\/\/.*$/, "").trim();
+
+      // Skip semicolon checking entirely if the line has comments and ends with semicolon
       if (
-        trimmedLine &&
-        !trimmedLine.startsWith("//") &&
-        !trimmedLine.startsWith("*") &&
-        !trimmedLine.endsWith("{") &&
-        !trimmedLine.endsWith("}") &&
-        !trimmedLine.endsWith(";") &&
-        !trimmedLine.includes("class ") &&
-        !trimmedLine.includes("interface ") &&
-        !trimmedLine.includes("abstract ") &&
-        !trimmedLine.includes("public ") &&
-        !trimmedLine.includes("private ") &&
-        !trimmedLine.includes("protected ") &&
-        !trimmedLine.includes("static ") &&
-        !trimmedLine.includes("import ") &&
-        !trimmedLine.includes("package ") &&
-        !trimmedLine.includes("if ") &&
-        !trimmedLine.includes("else") &&
-        !trimmedLine.includes("for ") &&
-        !trimmedLine.includes("while ") &&
-        !trimmedLine.includes("do ") &&
-        !trimmedLine.includes("switch ") &&
-        !trimmedLine.includes("try ") &&
-        !trimmedLine.includes("catch ") &&
-        !trimmedLine.includes("finally") &&
-        !trimmedLine.includes("case ") &&
-        !trimmedLine.includes("default:") &&
-        !trimmedLine.includes("break") &&
-        !trimmedLine.includes("continue") &&
-        !trimmedLine.includes("return") &&
-        !trimmedLine.includes("throw") &&
-        !trimmedLine.includes("synchronized") &&
-        !trimmedLine.includes("volatile") &&
-        !trimmedLine.includes("transient") &&
-        !trimmedLine.includes("native") &&
-        !trimmedLine.includes("final") &&
-        !trimmedLine.includes("enum ") &&
-        !trimmedLine.includes("extends ") &&
-        !trimmedLine.includes("implements ") &&
-        !trimmedLine.includes("throws ") &&
-        !trimmedLine.includes("@") &&
-        trimmedLine.length > 0
+        line.includes("//") &&
+        line.includes(";") &&
+        line.indexOf(";") < line.indexOf("//")
       ) {
-        // Check if it looks like a statement that should end with semicolon
+        // Line has semicolon before comment, so it's valid - skip semicolon checking
+      } else {
         if (
-          (trimmedLine.includes("System.out.print") &&
-            !trimmedLine.endsWith(";")) ||
-          (trimmedLine.includes("=") &&
-            !trimmedLine.endsWith(";") &&
-            !trimmedLine.endsWith("{")) ||
-          (trimmedLine.includes("return") && !trimmedLine.endsWith(";")) ||
-          (trimmedLine.match(/^\s*\w+\s+\w+/) &&
-            !trimmedLine.endsWith(";") &&
-            !trimmedLine.endsWith("{")) || // Variable declarations
-          (trimmedLine.includes("++") && !trimmedLine.endsWith(";")) ||
-          (trimmedLine.includes("--") && !trimmedLine.endsWith(";")) ||
-          (trimmedLine.includes("(") &&
-            trimmedLine.includes(")") &&
-            !trimmedLine.includes("{") &&
-            !trimmedLine.endsWith(";")) // Method calls
+          lineWithoutComments &&
+          !lineWithoutComments.startsWith("//") &&
+          !lineWithoutComments.startsWith("*") &&
+          !lineWithoutComments.endsWith("{") &&
+          !lineWithoutComments.endsWith("}") &&
+          !lineWithoutComments.endsWith(";") &&
+          !lineWithoutComments.includes("class ") &&
+          !lineWithoutComments.includes("interface ") &&
+          !lineWithoutComments.includes("abstract ") &&
+          !lineWithoutComments.includes("public ") &&
+          !lineWithoutComments.includes("private ") &&
+          !lineWithoutComments.includes("protected ") &&
+          !lineWithoutComments.includes("static ") &&
+          !lineWithoutComments.includes("import ") &&
+          !lineWithoutComments.includes("package ") &&
+          !lineWithoutComments.includes("if ") &&
+          !lineWithoutComments.includes("else") &&
+          !lineWithoutComments.includes("for ") &&
+          !lineWithoutComments.includes("while ") &&
+          !lineWithoutComments.includes("do ") &&
+          !lineWithoutComments.includes("switch ") &&
+          !lineWithoutComments.includes("try ") &&
+          !lineWithoutComments.includes("catch ") &&
+          !lineWithoutComments.includes("finally") &&
+          !lineWithoutComments.includes("case ") &&
+          !lineWithoutComments.includes("default:") &&
+          !lineWithoutComments.includes("break") &&
+          !lineWithoutComments.includes("continue") &&
+          !lineWithoutComments.includes("return") &&
+          !lineWithoutComments.includes("throw") &&
+          !lineWithoutComments.includes("synchronized") &&
+          !lineWithoutComments.includes("volatile") &&
+          !lineWithoutComments.includes("transient") &&
+          !lineWithoutComments.includes("native") &&
+          !lineWithoutComments.includes("final") &&
+          !lineWithoutComments.includes("enum ") &&
+          !lineWithoutComments.includes("extends ") &&
+          !lineWithoutComments.includes("implements ") &&
+          !lineWithoutComments.includes("throws ") &&
+          !lineWithoutComments.includes("@") &&
+          lineWithoutComments.length > 0
         ) {
-          errors.push({
-            line: lineNumber,
-            column: line.length,
-            message: "Missing semicolon",
-            explanation:
-              "This statement appears to be missing a semicolon ';' at the end.",
-          });
+          // Check if it looks like a statement that should end with semicolon
+          if (
+            (lineWithoutComments.includes("System.out.print") &&
+              !lineWithoutComments.endsWith(";")) ||
+            (lineWithoutComments.includes("=") &&
+              !lineWithoutComments.endsWith(";") &&
+              !lineWithoutComments.endsWith("{")) ||
+            (lineWithoutComments.includes("return") &&
+              !lineWithoutComments.endsWith(";")) ||
+            (lineWithoutComments.match(/^\s*\w+\s+\w+/) &&
+              !lineWithoutComments.endsWith(";") &&
+              !lineWithoutComments.endsWith("{")) || // Variable declarations
+            (lineWithoutComments.includes("++") &&
+              !lineWithoutComments.endsWith(";")) ||
+            (lineWithoutComments.includes("--") &&
+              !lineWithoutComments.endsWith(";")) ||
+            (lineWithoutComments.includes("(") &&
+              lineWithoutComments.includes(")") &&
+              !lineWithoutComments.includes("{") &&
+              !lineWithoutComments.endsWith(";")) // Method calls
+          ) {
+            errors.push({
+              line: lineNumber,
+              column: lineWithoutComments.length,
+              message: "Missing semicolon",
+              explanation:
+                "This statement appears to be missing a semicolon ';' at the end.",
+            });
+          }
         }
       }
 
@@ -343,6 +335,41 @@ class JavaSyntaxChecker {
       const opens = (line.match(/\{/g) || []).length;
       const closes = (line.match(/\}/g) || []).length;
       braceDepth += opens - closes;
+
+      // Initialize scope tracking for new depth
+      if (!variableScopes[braceDepth]) {
+        variableScopes[braceDepth] = new Set<string>();
+        variableDeclarations[braceDepth] = new Map<string, number>();
+      }
+
+      // Clean up deeper scopes when exiting them
+      for (const depth of Object.keys(variableScopes)) {
+        const depthNum = parseInt(depth);
+        if (depthNum > braceDepth) {
+          delete variableScopes[depthNum];
+          delete variableDeclarations[depthNum];
+          delete methodDeclarations[depthNum];
+        }
+      }
+
+      // Check for variable declarations and detect duplicates
+      this.checkVariableDeclarations(
+        trimmedLine,
+        lineNumber,
+        braceDepth,
+        variableScopes,
+        variableDeclarations,
+        errors
+      );
+
+      // Check for method declarations and detect duplicates
+      this.checkMethodDeclarations(
+        trimmedLine,
+        lineNumber,
+        braceDepth,
+        methodDeclarations,
+        errors
+      );
 
       // Check for invalid println statements
       if (line.includes("System.out.println") && !line.includes("(")) {
@@ -530,11 +557,7 @@ class JavaSyntaxChecker {
       });
     }
 
-    // If top-level statements were found, remove the generic missing-main error to avoid redundancy
-    if (hasTopLevelStatements) {
-      const idx = errors.findIndex((e) => e.message === "Missing main method");
-      if (idx !== -1) errors.splice(idx, 1);
-    }
+    // Main method is optional - only required if you want to run the program
 
     // Check for interface implementation in abstract classes
     if (code.includes("abstract class") && code.includes("implements")) {
@@ -683,6 +706,133 @@ class JavaSyntaxChecker {
     // For interface implementation, we need at least one method with matching parameters
     // But we also allow method overloading (same name, different parameters)
     return true; // Allow overloading - any method with the same name is acceptable
+  }
+
+  // Helper method to check for variable declarations and detect duplicates
+  private checkVariableDeclarations(
+    line: string,
+    lineNumber: number,
+    braceDepth: number,
+    variableScopes: { [depth: number]: Set<string> },
+    variableDeclarations: { [depth: number]: Map<string, number> },
+    errors: SyntaxError[]
+  ): void {
+    // Skip comments, imports, package declarations, and class/interface declarations
+    if (
+      line.startsWith("//") ||
+      line.startsWith("/*") ||
+      line.startsWith("*") ||
+      line.startsWith("import ") ||
+      line.startsWith("package ") ||
+      line.includes("class ") ||
+      line.includes("interface ") ||
+      line.includes("public ") ||
+      line.includes("private ") ||
+      line.includes("protected ")
+    ) {
+      return;
+    }
+
+    // Check for variable declarations
+    // Pattern: type variableName [= value];
+    // Examples: int x; String name = "test"; double price = 10.5;
+    const variableDeclarationRegex =
+      /^\s*(?:final\s+)?(?:static\s+)?(?:volatile\s+)?(?:transient\s+)?(int|String|boolean|double|float|char|byte|short|long|Object|var)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*(?:=|;)/;
+
+    const match = line.match(variableDeclarationRegex);
+    if (match) {
+      const variableName = match[2];
+
+      // Check if variable already exists in current scope or any parent scope
+      for (let depth = 0; depth <= braceDepth; depth++) {
+        if (variableScopes[depth] && variableScopes[depth].has(variableName)) {
+          const originalLine = variableDeclarations[depth]?.get(variableName);
+          errors.push({
+            line: lineNumber,
+            column: line.indexOf(variableName),
+            message: `Duplicate variable name: '${variableName}'`,
+            explanation: `Variable '${variableName}' is already declared${
+              originalLine ? ` on line ${originalLine}` : ""
+            }. Variable names must be unique within the same scope.`,
+          });
+          return;
+        }
+      }
+
+      // Add variable to current scope
+      if (!variableScopes[braceDepth]) {
+        variableScopes[braceDepth] = new Set<string>();
+        variableDeclarations[braceDepth] = new Map<string, number>();
+      }
+      variableScopes[braceDepth].add(variableName);
+      variableDeclarations[braceDepth].set(variableName, lineNumber);
+    }
+  }
+
+  // Helper method to check for method declarations and detect duplicates
+  private checkMethodDeclarations(
+    line: string,
+    lineNumber: number,
+    braceDepth: number,
+    methodDeclarations: { [depth: number]: Map<string, number> },
+    errors: SyntaxError[]
+  ): void {
+    // Skip comments, imports, package declarations
+    if (
+      line.startsWith("//") ||
+      line.startsWith("/*") ||
+      line.startsWith("*") ||
+      line.startsWith("import ") ||
+      line.startsWith("package ") ||
+      line.includes("System.out.")
+    ) {
+      return;
+    }
+
+    // Check for method declarations in interfaces and classes
+    // Pattern: [modifiers] returnType methodName(params) [throws exceptions];
+    // Examples: void starten(); public void stoppen(); @Override public void bewegen(int x, int y)
+    const methodDeclarationRegex =
+      /^\s*(?:@\w+\s+)?(?:public\s+|private\s+|protected\s+)?(?:static\s+)?(?:final\s+)?(?:abstract\s+)?(?:synchronized\s+)?(void|String|int|boolean|double|float|char|byte|short|long|Object|\w+)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*(?:throws\s+[\w\s,]+)?\s*;?\s*$/;
+
+    const match = line.match(methodDeclarationRegex);
+    if (match) {
+      const methodName = match[2];
+
+      // Extract parameters from the method signature
+      const paramMatch = line.match(/\(([^)]*)\)/);
+      const parameters = paramMatch ? paramMatch[1].trim() : "";
+
+      // Create method signature (name + parameters)
+      const methodSignature = `${methodName}(${parameters})`;
+
+      // Initialize method declarations map for current depth
+      if (!methodDeclarations[braceDepth]) {
+        methodDeclarations[braceDepth] = new Map<string, number>();
+      }
+
+      // Check if method already exists in current scope or any parent scope
+      for (let depth = 0; depth <= braceDepth; depth++) {
+        if (
+          methodDeclarations[depth] &&
+          methodDeclarations[depth].has(methodSignature)
+        ) {
+          const originalLine = methodDeclarations[depth].get(methodSignature);
+          errors.push({
+            line: lineNumber,
+            column: line.indexOf(methodName),
+            message: `Duplicate method declaration: '${methodSignature}'`,
+            explanation: `Method '${methodSignature}' is already declared${
+              originalLine ? ` on line ${originalLine}` : ""
+            }. Method signatures must be unique within the same scope.`,
+          });
+          return;
+        }
+      }
+
+      // Add method to current scope
+      methodDeclarations[braceDepth].set(methodSignature, lineNumber);
+    }
   }
 }
 

@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "OOP Game",
+  title: "Roborescue",
   description: "The best game to learn oop",
 };
 

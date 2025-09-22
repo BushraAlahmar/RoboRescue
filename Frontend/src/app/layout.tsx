@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "RoboRescue",
+  title: "Roborescue",
   description: "The best game to learn oop",
 };
 
@@ -15,4 +15,4 @@ export default function RootLayout({
       <body>{children}</body>
     </html>
   );
-} 
+}
