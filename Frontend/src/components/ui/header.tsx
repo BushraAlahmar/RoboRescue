@@ -115,7 +115,7 @@ export function Header() {
                 className={`transition-colors ${
                   isActive(routeName.home)
                     ? "text-metallic-accent"
-                    : "text-metallic-light/60 hover:text-metallic-light"
+                    : "text-white/90 hover:text-white"
                 }`}
               >
                 {t("home")}
@@ -137,7 +137,7 @@ export function Header() {
                 className={`transition-colors ${
                   isActive(routeName.about)
                     ? "text-metallic-accent"
-                    : "text-metallic-light/60 hover:text-metallic-light"
+                    : "text-white/90 hover:text-white"
                 }`}
               >
                 {t("about")}
@@ -151,7 +151,7 @@ export function Header() {
                   className="flex items-center gap-2 text-sm px-3 py-2 text-metallic-light/80 hover:text-metallic-light bg-metallic-accent/10 hover:bg-metallic-accent/20 rounded-lg transition-colors"
                 >
                   <Globe className="w-4 h-4 text-metallic-accent" />
-                  <span className="hidden md:inline uppercase">
+                  <span className="hidden md:inline uppercase text-white">
                     {locale.toUpperCase()}
                   </span>
                   <ChevronDown className="w-4 h-4" />
@@ -192,7 +192,9 @@ export function Header() {
                     <div className="w-8 h-8 bg-metallic-accent/20 rounded-full flex items-center justify-center">
                       <User className="w-4 h-4 text-metallic-accent" />
                     </div>
-                    <span className="hidden md:inline">{t("profile")}</span>
+                    <span className="hidden md:inline text-white">
+                      {t("profile")}
+                    </span>
                     <ChevronDown className="w-4 h-4" />
                   </button>
 

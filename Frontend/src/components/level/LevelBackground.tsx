@@ -23,7 +23,7 @@ export function LevelBackground({
       2: "/assets/images/BB.jpg",
       3: "/assets/images/CC.jpg",
       4: "/assets/images/D4.png",
-      5: "/assets/images/A.jpg",
+      5: "/assets/images/AA.jpg",
       6: "/assets/images/B.jpg",
       7: "/assets/images/C.jpg",
       8: "/assets/images/D.jpg",
